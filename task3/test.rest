@@ -1,0 +1,25 @@
+GET http://localhost:3000/tasks
+
+###
+
+POST http://localhost:3000/task
+Content-Type: application/json
+
+{
+    "title": "Wash Car",
+    "description": "Wash the car",
+    "status": "Completed"
+}
+
+###
+GET http://localhost:3000/task/c50c34ab-e0b7-4999-ac4f-46069b5e6031
+
+###
+PUT http://localhost:3000/task/e92960a6-9e15-42e6-a154-32158991b8cc
+Content-Type: application/json
+
+{
+    "title": "ing Car",
+    "description": "Wash the car",
+    "status": "Completed"
+}
