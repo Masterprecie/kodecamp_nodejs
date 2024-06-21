@@ -29,7 +29,11 @@ server.post("/task", (req, res) => {
 
 //get all tasks
 server.get("/tasks", (req, res) => {
-  res.send(tasks);
+  if (tasks.length === 0) {
+    res.send({ message: "No tasks found" });
+  } else {
+    res.send(tasks);
+  }
 });
 
 //get a task by id

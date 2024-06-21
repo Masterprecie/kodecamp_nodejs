@@ -1,3 +1,5 @@
+
+
 GET http://localhost:3000/tasks
 
 ###
@@ -12,14 +14,27 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/task/c50c34ab-e0b7-4999-ac4f-46069b5e6031
+GET http://localhost:3000/task/33e6a3ce-ae9f-42df-8c69-eaab974b4bcc
 
 ###
-PUT http://localhost:3000/task/e92960a6-9e15-42e6-a154-32158991b8cc
+PUT http://localhost:3000/task/33e6a3ce-ae9f-42df-8c69-eaab974b4bcc
+Content-Type: application/json
+
+{
+    "title": "Cleaning Car",
+    "description": "Washing the car",
+    "status": "Pending"
+}
+
+###
+PATCH  http://localhost:3000/task/33e6a3ce-ae9f-42df-8c69-eaab974b4bcc
 Content-Type: application/json
 
 {
     "title": "ing Car",
-    "description": "Wash the car",
-    "status": "Completed"
+    "description": "Washing the car",
+    "status": "Pending"
 }
+
+###
+DELETE http://localhost:3000/task/4324411e-d24f-4fca-b181-45fb289d6846
