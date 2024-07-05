@@ -13,6 +13,16 @@ const authRouter = express.Router();
 authRouter.post("/register", async (req, res) => {
   try {
     const { fullName, email, password } = req.body;
+
+    const existingUser = await userModel.findOne({ email });
+    if (existingUser) {
+      res.status(400).send({
+        isSuccessful: false,
+        message: "Email already exists",
+      });
+      return;
+    }
+
     const hashedPassword = bcrypt.hashSync(password, 10);
 
     const token = v4();
@@ -100,7 +110,7 @@ authRouter.post("/login", async (req, res) => {
     if (!isPasswordValid) {
       res.status(400).send({
         isSuccessful: false,
-        message: "Invalid password",
+        message: "Invalid Credentials",
       });
       return;
     }
