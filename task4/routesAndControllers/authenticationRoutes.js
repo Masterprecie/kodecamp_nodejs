@@ -105,14 +105,6 @@ authRouter.post("/login", async (req, res) => {
       return;
     }
 
-    if (!user.isEmailVerified) {
-      res.status(400).send({
-        isSuccessful: false,
-        message: "Email not verified",
-      });
-      return;
-    }
-
     const isPasswordValid = bcrypt.compareSync(password, user.password);
 
     if (!isPasswordValid) {
